@@ -4,6 +4,7 @@ app.directive('htmlCustomer',htmlCustomer);
 app.directive('attrCustomer',attrCustomer);
 app.directive('restrictCustomer',restrictCustomer);
 app.directive('isolatescopeCustomer',isolatescopeCustomer);
+app.directive('manipulatesDomCustomer',manipulatesDomCustomer);
 
 function layout(){
     return{
@@ -56,4 +57,27 @@ function isolatescopeCustomer(){
         },
         templateUrl: 'isolatescope-customer.html'
     }
+}
+
+function manipulatesDomCustomer($interval, dateFilter){
+    return{
+        'link': link
+    }
+
+    function link(scope, element, attrs) {
+        var format, timeoutId;
+        
+        function updateTime() {
+            element.text(dateFilter(new Date(), format));
+        }
+
+        scope.$watch(attrs.myCurrentTime, function(value) {
+            format = value;
+            updateTime();
+        });
+
+        element.on('$destroy', function() { $interval.cancel(timeoutId); });
+        timeoutId = $interval(function() { updateTime(); }, 1000);
+    }
+    
 }

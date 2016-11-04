@@ -15,5 +15,6 @@ function mainController($scope, mainService){
         $scope.myungsoo = { name: 'Myungsoo', address: 'south korea' };
         $scope.chunsoo = { name: 'Chunsoo', address: 'north korea' };
 
+        $scope.format = 'M/d/yy h:mm:ss a';
     }
 }
