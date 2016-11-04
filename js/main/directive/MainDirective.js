@@ -2,6 +2,7 @@ app.directive('layout',layout);
 app.directive('myCustomer',myCustomer);
 app.directive('htmlCustomer',htmlCustomer);
 app.directive('attrCustomer',attrCustomer);
+app.directive('restrictCustomer',restrictCustomer);
 
 function layout(){
     return{
@@ -30,3 +31,18 @@ function attrCustomer(){
         }
     }
 }
+
+function restrictCustomer(){
+    return{
+        restrict: 'E',
+        templateUrl: 'restrict-customer.html'
+    }
+}
+
+/**
+ * @restrict : 지시자 선언타입 이라고함.
+    E - Element name: <my-directive></my-directive>
+    A - Attribute: <div my-directive="exp"> </div>
+    C - Class: <div class="my-directive: exp;"></div>
+    M - Comment: <!-- directive: my-directive exp -->
+ */
