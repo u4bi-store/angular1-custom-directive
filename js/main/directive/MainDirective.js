@@ -1,5 +1,6 @@
 app.directive('layout',layout);
 app.directive('myCustomer',myCustomer);
+app.directive('htmlCustomer',htmlCustomer);
 
 function layout(){
     return{
@@ -11,6 +12,12 @@ function layout(){
 
 function myCustomer(){
     return{
-        template: 'name: {{customer.name}} addr: {{customer.address}}'
+        template: '[my-customer] name: {{customer.name}} addr: {{customer.address}}'
+    }
+}
+
+function htmlCustomer(){
+    return{
+        templateUrl: 'views/main/html-customer.html'
     }
 }
