@@ -1,6 +1,7 @@
 app.directive('layout',layout);
 app.directive('myCustomer',myCustomer);
 app.directive('htmlCustomer',htmlCustomer);
+app.directive('attrCustomer',attrCustomer);
 
 function layout(){
     return{
@@ -19,5 +20,13 @@ function myCustomer(){
 function htmlCustomer(){
     return{
         templateUrl: 'views/main/html-customer.html'
+    }
+}
+
+function attrCustomer(){
+    return{
+        templateUrl: function(elem, attr) {
+            return 'views/main/customer-' + attr.type + '.html';
+        }
     }
 }
