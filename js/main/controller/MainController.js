@@ -6,5 +6,10 @@ function mainController($scope, mainService){
 
     function init(){
         console.log('flog: '+mainService.flog(false));
+
+        $scope.customer = {
+            name: 'u4bi',
+            address: 'south korea'
+        };
     }
 }
