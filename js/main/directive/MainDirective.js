@@ -3,6 +3,7 @@ app.directive('myCustomer',myCustomer);
 app.directive('htmlCustomer',htmlCustomer);
 app.directive('attrCustomer',attrCustomer);
 app.directive('restrictCustomer',restrictCustomer);
+app.directive('isolatescopeCustomer',isolatescopeCustomer);
 
 function layout(){
     return{
@@ -46,3 +47,13 @@ function restrictCustomer(){
     C - Class: <div class="my-directive: exp;"></div>
     M - Comment: <!-- directive: my-directive exp -->
  */
+
+function isolatescopeCustomer(){
+    return{
+        restrict: 'E',
+        scope: {
+            customerInfo: '=info'
+        },
+        templateUrl: 'isolatescope-customer.html'
+    }
+}

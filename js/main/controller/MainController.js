@@ -11,5 +11,9 @@ function mainController($scope, mainService){
             name: 'u4bi',
             address: 'south korea'
         };
+
+        $scope.myungsoo = { name: 'Myungsoo', address: 'south korea' };
+        $scope.chunsoo = { name: 'Chunsoo', address: 'north korea' };
+
     }
 }
